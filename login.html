@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — VeloCity Tallinn (demo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .login-page {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(19, 41, 58, 0.08);
+      border-radius: 24px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 24px 64px rgba(19, 41, 58, 0.12);
+    }
+
+    .login-card h1 {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .login-card .subtitle {
+      margin: 0 0 1.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(19, 41, 58, 0.1);
+      background: rgba(244, 248, 247, 0.92);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(20, 184, 176, 0.15);
+    }
+
+    .login-actions {
+      margin-top: 1.5rem;
+    }
+
+    .login-actions .btn-primary {
+      width: 100%;
+      padding: 0.8rem;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .banner {
+      font-size: 0.8rem;
+      color: #8b6512;
+      background: rgba(241, 190, 90, 0.16);
+      border: 1px solid rgba(241, 190, 90, 0.36);
+      border-radius: 16px;
+      padding: 0.65rem 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="logo" href="index.html">VeloCity <span>Tallinn</span></a>
+      <div class="header-actions" style="display: flex">
+        <a class="btn btn-ghost" href="index.html">← Back to site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-page">
+    <div class="login-card">
+      <p class="banner">Demo only — credentials are not sent to any server. Submit redirects to a static preview page.</p>
+      <h1>Staff login</h1>
+      <p class="subtitle">Municipality console (mock)</p>
+      <form id="fake-login" action="app.html" method="get">
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" autocomplete="username" placeholder="planner@tallinn.ee" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" />
+        </div>
+        <div class="login-actions">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+      <a class="back" href="index.html">Cancel</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>VeloCity Tallinn — demo login</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("fake-login").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var params = new URLSearchParams();
+      params.set("demo", "1");
+      params.set("ts", String(Date.now()));
+      window.location.href = "app.html?" + params.toString();
+    });
+  </script>
+</body>
+</html>

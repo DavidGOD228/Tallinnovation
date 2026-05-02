@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VeloCity Tallinn — Cycling infrastructure intelligence</title>
+  <meta
+    name="description"
+    content="VeloCity Tallinn is an alpha-stage cycling infrastructure intelligence platform for Tallinn: citizen reporting, municipal prioritisation, and measurable CO2 impact."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="logo" href="index.html">VeloCity <span>Tallinn</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#problem">Problem</a>
+        <a href="#platform">Platform</a>
+        <a href="#pilot">Pilot</a>
+        <a href="#cities">Export</a>
+        <a href="#gallery">Screens</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="login.html">Preview dashboard</a>
+        <a class="btn btn-primary" href="#contact">Discuss the pilot</a>
+      </div>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu"></button>
+    </div>
+    <div id="nav-drawer" class="nav-drawer" hidden>
+      <a href="#problem">Problem</a>
+      <a href="#platform">Platform</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#cities">Export</a>
+      <a href="#gallery">Screens</a>
+      <a href="#contact">Contact</a>
+      <a href="login.html">Preview dashboard</a>
+      <a class="btn btn-primary" href="#contact">Discuss the pilot</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Alpha-stage smart city product concept for Tallinn</p>
+          <h1>See where cycling infrastructure needs attention before budget gets wasted.</h1>
+          <p class="lead">
+            VeloCity Tallinn gives the city a practical way to collect resident-reported cycling issues, cluster
+            recurring problems, prioritise corridors, and communicate sustainability impact with transparent
+            assumptions.
+          </p>
+          <p class="hero-note">
+            The product is positioned as a pre-MVP, grant-funded build: core architecture is defined, high-fidelity
+            product mockups are ready, and the implementation plan is structured for MVP delivery and pilot execution.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="#contact">Request application package</a>
+            <a class="btn btn-outline btn-lg" href="#gallery">View product screens</a>
+          </div>
+          <ul class="hero-points">
+            <li>Citizen issue reporting with map pin, severity, and optional photo evidence</li>
+            <li>Municipality dashboard with clustering, corridor scoring, and pilot-ready workflows</li>
+            <li>CO2 and export-ready reporting layer aligned with public-sector sustainability narratives</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-stage">
+            <div class="hero-stat hero-stat-top">
+              <span class="hero-stat-label">Pilot scope</span>
+              <strong>2-3 Tallinn corridors</strong>
+              <span>Focused enough for a credible MVP validation.</span>
+            </div>
+            <div class="hero-stat hero-stat-bottom">
+              <span class="hero-stat-label">Reporting fit</span>
+              <strong>Fast, map-based issue capture</strong>
+              <span>Built around the resident experience, not a generic complaint form.</span>
+            </div>
+            <div class="hero-screen">
+              <img
+                class="hero-device"
+                src="assets/screen-01-map-overview-cutout.png"
+                width="505"
+                alt="VeloCity mobile map screen showing issue clusters in Tallinn"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell metrics-strip" aria-label="Key positioning">
+        <article>
+          <span class="metric-kicker">Positioning</span>
+          <strong>Smart city + urban mobility</strong>
+          <p>Built around reporting, prioritisation, and measurable climate outcomes.</p>
+        </article>
+        <article>
+          <span class="metric-kicker">Maturity</span>
+          <strong>Pre-MVP / TRL 3</strong>
+          <p>Mockups, architecture, implementation plan, and realistic MVP roadmap are in place.</p>
+        </article>
+        <article>
+          <span class="metric-kicker">Delivery ask</span>
+          <strong>EUR 30,000 grant</strong>
+          <p>Funding is positioned to build the first working MVP plus a focused Tallinn pilot.</p>
+        </article>
+        <article>
+          <span class="metric-kicker">Export path</span>
+          <strong>Tartu, Riga, Vilnius</strong>
+          <p>The architecture is localisable and designed for Baltic municipal expansion after Tallinn.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="problem" class="section section-soft">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">The problem</p>
+          <h2>Tallinn needs better visibility between resident reality and infrastructure investment decisions.</h2>
+          <p class="section-intro">
+            Cycling infrastructure is expanding, but maintenance, safety, and route quality are still hard to assess in
+            a structured way. Today, signals are scattered across calls, email, social media, inspections, and manual
+            planning documents.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <h3>Fragmented issue reporting</h3>
+            <p>Residents can report problems, but the signal rarely turns into consistent spatial data usable for planning, prioritisation, or public accountability.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Limited corridor-level prioritisation</h3>
+            <p>Planners need to defend where budget goes. Without clustering, severity weighting, and repeat-pattern visibility, decisions can look reactive instead of evidence-based.</p>
+          </article>
+          <article class="problem-card">
+            <h3>Weak climate storytelling</h3>
+            <p>Cycling supports modal shift and emissions reduction, yet most cities still struggle to communicate impact in a way that is transparent, repeatable, and usable in reporting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform" class="section">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">The platform</p>
+          <h2>Three connected modules, one operational picture.</h2>
+          <p class="section-intro">
+            VeloCity Tallinn is designed so the city does not need three separate tools for reporting, planning, and
+            sustainability communication. Each module can start simple, but together they create a much stronger pilot story.
+          </p>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card">
+            <span class="module-number">01</span>
+            <h3>CitizenReport</h3>
+            <p>React Native app concept for iOS and Android with fast location-based issue reporting, winter categories, status updates, and public trust-building visibility.</p>
+          </article>
+          <article class="module-card">
+            <span class="module-number">02</span>
+            <h3>PlannerDashboard</h3>
+            <p>Municipality-facing web dashboard for clustering reports, ranking corridors, reviewing trends, and generating decision-ready views for maintenance and budget discussions.</p>
+          </article>
+          <article class="module-card">
+            <span class="module-number">03</span>
+            <h3>ImpactTracker</h3>
+            <p>CO2 estimation and reporting layer that helps the city communicate cycling impact in a way that stays understandable, auditable, and export-friendly.</p>
+          </article>
+        </div>
+
+        <div class="mobile-showcase">
+          <figure class="mobile-shot">
+            <div class="mobile-frame">
+              <img src="assets/screen-02-issue-type-cutout.png" width="487" alt="Issue type selection screen" loading="lazy" />
+            </div>
+            <figcaption>Choose the issue type, including winter-specific categories relevant for Tallinn.</figcaption>
+          </figure>
+          <figure class="mobile-shot mobile-shot-featured">
+            <div class="mobile-frame">
+              <img src="assets/screen-03-report-details-cutout.png" width="473" alt="Issue details screen with severity and location" loading="lazy" />
+            </div>
+            <figcaption>Add photo evidence, severity, optional notes, and exact location before submission.</figcaption>
+          </figure>
+          <figure class="mobile-shot">
+            <div class="mobile-frame">
+              <img src="assets/screen-04-submitted-cutout.png" width="505" alt="Submission confirmation screen" loading="lazy" />
+            </div>
+            <figcaption>Give residents a confirmation step and a visible next action, not a dead end.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell split">
+        <div class="dashboard-showcase">
+          <figure class="desktop-shot desktop-shot-main">
+            <img src="assets/screen-05-dashboard-overview.png" width="1536" alt="Municipality dashboard overview" loading="lazy" />
+            <figcaption>Overview screen with report volume, corridor count, and ranked priorities.</figcaption>
+          </figure>
+          <figure class="desktop-shot desktop-shot-secondary">
+            <img src="assets/screen-06-priority-map.png" width="1536" alt="Priority map screen" loading="lazy" />
+            <figcaption>Priority map view showing corridor quality and decision-ready planning context.</figcaption>
+          </figure>
+        </div>
+        <div class="copy-stack">
+          <p class="eyebrow">For city operations</p>
+          <h2>A credible municipal workflow, not just another civic app.</h2>
+          <p class="prose">
+            The dashboard is where the application becomes strategically interesting for Tallinn. Reports are not left
+            as isolated tickets. They are grouped, scored, and surfaced in a way that helps planners explain why a
+            corridor is urgent, why another can wait, and how repeated community feedback lines up with maintenance reality.
+          </p>
+          <ul class="detail-list">
+            <li>AI-assisted clustering designed to be explainable rather than opaque</li>
+            <li>Corridor quality scoring that can include density, severity, recency, and optional accident data</li>
+            <li>Role-based workflow for planners, contractors, and pilot observers</li>
+            <li>Exports for presentations, reviews, and public-sector reporting packs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split split-reverse">
+        <div class="copy-stack">
+          <p class="eyebrow">For sustainability and policy</p>
+          <h2>Climate impact is part of the story, but presented carefully.</h2>
+          <p class="prose">
+            VeloCity Tallinn does not pretend to deliver perfect emissions certainty. Instead, the concept positions
+            CO2 estimation as a practical, transparent layer that helps the city communicate cycling value, pilot
+            results, and broader sustainability relevance without overclaiming.
+          </p>
+          <ul class="detail-list">
+            <li>Scenario-based assumptions rather than black-box metrics</li>
+            <li>Readable annual dashboards for leadership and residents</li>
+            <li>Export-oriented positioning for cities with similar SUMP and climate goals</li>
+            <li>Useful bridge between mobility investment and sustainability reporting</li>
+          </ul>
+        </div>
+        <div class="impact-showcase">
+          <figure class="desktop-shot impact-shot">
+            <img src="assets/screen-07-co2-impact.png" width="1536" alt="ImpactTracker dashboard with CO2 metrics" loading="lazy" />
+            <figcaption>ImpactTracker prototype for CO2 communication, annual summaries, and export-oriented reporting.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilot" class="section section-soft">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Pilot and MVP</p>
+          <h2>The funding narrative is focused: build a working MVP, then prove it on a small Tallinn pilot.</h2>
+          <p class="section-intro">
+            The application package positions the grant request around MVP delivery, not a fully finished production platform.
+            That keeps the story ambitious but credible.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <span>Stage 1</span>
+            <h3>Architecture and design baseline</h3>
+            <p>Lock UX flows, security assumptions, reporting taxonomy, and data structures for mobile, dashboard, and impact modules.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>Stage 2</span>
+            <h3>Mobile and backend MVP</h3>
+            <p>Implement issue submission, map interaction, severity model, status visibility, API endpoints, and storage layer.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>Stage 3</span>
+            <h3>Planner dashboard and scoring</h3>
+            <p>Launch clustered report views, corridor ranking, pilot workflows, and the first explainable prioritisation layer.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>Stage 4</span>
+            <h3>Impact layer and pilot execution</h3>
+            <p>Add CO2 reporting logic, validate KPIs on 2-3 corridors, and produce a documented pilot outcome for future expansion.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cities" class="section">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Export strategy</p>
+          <h2>Built for Tallinn first, but structured to travel to other Baltic municipalities.</h2>
+          <p class="section-intro">
+            The export plan positions Tallinn as the reference deployment, then uses configuration, localisation, and
+            repeatable onboarding to support expansion into similar municipal contexts.
+          </p>
+        </div>
+
+        <div class="market-grid">
+          <article class="market-card market-card-active">
+            <h3>Tallinn</h3>
+            <p>Anchor city and first reference case. Focus on pilot credibility, planner workflow fit, and a local smart-city narrative.</p>
+          </article>
+          <article class="market-card">
+            <h3>Tartu</h3>
+            <p>Closest second-city expansion: similar digital patterns, strong cycling culture, and lower onboarding friction.</p>
+          </article>
+          <article class="market-card">
+            <h3>Riga</h3>
+            <p>Higher revenue potential with more procurement complexity; suitable for a district-first or pilot-led entry.</p>
+          </article>
+          <article class="market-card">
+            <h3>Vilnius</h3>
+            <p>Good fit for corridor prioritisation and winter-aware operations framing as cycling investment continues to grow.</p>
+          </article>
+        </div>
+
+        <div class="export-band">
+          <div>
+            <h3>What transfers well</h3>
+            <p>GIS-driven corridor logic, dashboard flows, issue clustering, and reporting templates are designed to be reusable.</p>
+          </div>
+          <div>
+            <h3>What needs localisation</h3>
+            <p>Language, identity/access policies, GIS onboarding, and local public-sector documentation must be adapted city by city.</p>
+          </div>
+          <div>
+            <h3>Why the grant story matters</h3>
+            <p>A strong Tallinn MVP plus pilot evidence is the commercial proof point that makes export conversations realistic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section section-alt">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Product screens</p>
+          <h2>Detailed visual package for the application materials.</h2>
+          <p class="section-intro">
+            The mockups below are concept visuals prepared for the grant package, supporting documents, and pilot conversations.
+            They represent an early but credible alpha-stage product direction.
+          </p>
+        </div>
+
+        <div class="gallery-grid gallery-grid-mobile">
+          <figure class="gallery-card gallery-card-mobile">
+            <div class="gallery-mobile-frame">
+              <img src="assets/screen-02-issue-type-cutout.png" width="487" alt="Issue type selection screen" loading="lazy" />
+            </div>
+            <figcaption>Winter-aware issue categorisation for realistic Tallinn reporting.</figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-mobile">
+            <div class="gallery-mobile-frame">
+              <img src="assets/screen-03-report-details-cutout.png" width="473" alt="Issue details screen with photo and severity" loading="lazy" />
+            </div>
+            <figcaption>Severity, evidence, and location details keep reports actionable.</figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-mobile">
+            <div class="gallery-mobile-frame">
+              <img src="assets/screen-04-submitted-cutout.png" width="505" alt="Submission confirmation screen" loading="lazy" />
+            </div>
+            <figcaption>Confirmation and visibility close the loop for residents.</figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-desktop">
+            <div class="gallery-desktop-frame">
+              <img src="assets/screen-05-dashboard-overview.png" width="1536" alt="Planner dashboard overview" loading="lazy" />
+            </div>
+            <figcaption>Municipality overview with KPIs, corridor ranking, and operational context.</figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-desktop">
+            <div class="gallery-desktop-frame">
+              <img src="assets/screen-06-priority-map.png" width="1536" alt="Priority map screen" loading="lazy" />
+            </div>
+            <figcaption>Priority map view for corridor-level maintenance and investment decisions.</figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-desktop">
+            <div class="gallery-desktop-frame">
+              <img src="assets/screen-07-co2-impact.png" width="1536" alt="Impact dashboard screen" loading="lazy" />
+            </div>
+            <figcaption>ImpactTracker showing climate narrative and annual reporting direction.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-cta">
+      <div class="shell cta-shell">
+        <div class="cta-copy">
+          <p class="eyebrow">About BWinW</p>
+          <h2>BWinW develops digital products and can credibly carry this from concept into MVP.</h2>
+          <p class="prose">
+            BWinW is an IT company focused on product development. The company delivers outsourced product work and
+            builds internal products across education, manufacturing, banking, and infrastructure-related domains.
+            VeloCity Tallinn is positioned as one of those internal product initiatives: a civic-tech platform with
+            local pilot relevance and clear export potential.
+          </p>
+          <p class="prose muted">
+            This public page is a concept demonstration for grant, pilot, and stakeholder discussions. It does not collect live
+            data and should not be presented as a finished production deployment.
+          </p>
+        </div>
+        <div class="cta-panel">
+          <h3>Application-ready package</h3>
+          <ul class="detail-list">
+            <li>Detailed project document in `.docx` with embedded mockups</li>
+            <li>Separate export and market plan in `.docx` for the Tallinn submission portal</li>
+            <li>Website visuals, dashboard preview, and reusable product narrative blocks</li>
+          </ul>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="login.html">Open dashboard preview</a>
+            <a class="btn btn-outline" href="#gallery">Review screenshots</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© BWinW — VeloCity Tallinn concept package</span>
+      <a href="login.html">Municipality preview</a>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

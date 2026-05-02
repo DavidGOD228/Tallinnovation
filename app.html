@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Planner console (demo) — VeloCity Tallinn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .app-wrap {
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .app-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .app-bar h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(20, 184, 176, 0.12);
+      color: var(--accent-strong);
+    }
+
+    .preview {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(19, 41, 58, 0.08);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 20px 50px rgba(19, 41, 58, 0.12);
+    }
+
+    .preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .note {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+      color: var(--muted);
+      border: 1px solid rgba(19, 41, 58, 0.08);
+    }
+
+    .preview-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .preview-switcher button {
+      border: 1px solid rgba(19, 41, 58, 0.08);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--text-soft);
+      border-radius: 999px;
+      padding: 0.6rem 0.9rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .preview-switcher button.is-active {
+      color: white;
+      background: linear-gradient(135deg, #14b8b0 0%, #1793c9 100%);
+      box-shadow: 0 12px 24px rgba(20, 184, 176, 0.16);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="logo" href="index.html">VeloCity <span>Tallinn</span></a>
+      <div class="header-actions" style="display: flex">
+        <a class="btn btn-ghost" href="index.html">Sign out</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell app-wrap">
+    <div class="app-bar">
+      <div>
+        <span class="pill">Session</span>
+        <h1>PlannerDashboard — static preview</h1>
+      </div>
+      <a class="btn btn-outline" href="index.html">Back to landing</a>
+    </div>
+    <div class="preview-switcher" aria-label="Preview screens">
+      <button type="button" class="is-active" data-src="assets/screen-05-dashboard-overview.png" data-alt="Design mockup: municipality dashboard overview" data-width="1536">Overview</button>
+      <button type="button" data-src="assets/screen-06-priority-map.png" data-alt="Design mockup: corridor priority map" data-width="1536">Priority map</button>
+      <button type="button" data-src="assets/screen-07-co2-impact.png" data-alt="Design mockup: CO2 impact dashboard" data-width="1536">Impact</button>
+    </div>
+    <div class="preview">
+      <img id="preview-image" src="assets/screen-05-dashboard-overview.png" width="1536" alt="Design mockup: municipality dashboard overview" />
+    </div>
+    <p class="note">
+      You reached this page through the <strong>fake login</strong>: the form does not authenticate or transmit data. The image is a product mockup for documentation and grant materials. A real deployment would connect to your identity provider (e.g. Smart ID) and live PostGIS-backed APIs.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>VeloCity Tallinn — demo console</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var image = document.getElementById("preview-image");
+      var buttons = document.querySelectorAll(".preview-switcher button");
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          buttons.forEach(function (other) {
+            other.classList.remove("is-active");
+          });
+          button.classList.add("is-active");
+          image.src = button.getAttribute("data-src");
+          image.alt = button.getAttribute("data-alt");
+          image.width = Number(button.getAttribute("data-width"));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
