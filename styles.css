@@ -931,6 +931,11 @@ code {
   gap: 0.75rem;
 }
 
+.footer-copy {
+  display: grid;
+  gap: 0.2rem;
+}
+
 .footer-inner a {
   color: var(--muted);
 }
