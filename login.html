@@ -71,9 +71,16 @@
 
     .login-actions {
       margin-top: 1.5rem;
+      display: grid;
+      gap: 0.75rem;
     }
 
     .login-actions .btn-primary {
+      width: 100%;
+      padding: 0.8rem;
+    }
+
+    .login-actions .btn-outline {
       width: 100%;
       padding: 0.8rem;
     }
@@ -95,6 +102,53 @@
       padding: 0.65rem 0.75rem;
       margin-bottom: 1.25rem;
     }
+
+    .login-feedback {
+      display: none;
+      font-size: 0.88rem;
+      border-radius: 16px;
+      padding: 0.8rem 0.9rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(19, 41, 58, 0.08);
+    }
+
+    .login-feedback.is-visible {
+      display: block;
+    }
+
+    .login-feedback.is-pending {
+      color: #0f5f7d;
+      background: rgba(45, 109, 166, 0.1);
+      border-color: rgba(45, 109, 166, 0.22);
+    }
+
+    .login-feedback.is-error {
+      color: #8f2430;
+      background: rgba(210, 61, 79, 0.1);
+      border-color: rgba(210, 61, 79, 0.24);
+    }
+
+    .field.has-error input {
+      border-color: rgba(210, 61, 79, 0.7);
+      box-shadow: 0 0 0 3px rgba(210, 61, 79, 0.12);
+    }
+
+    .field-error {
+      display: none;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: #9c3140;
+    }
+
+    .field.has-error .field-error {
+      display: block;
+    }
+
+    .login-actions button[disabled] {
+      opacity: 0.76;
+      cursor: wait;
+      transform: none;
+    }
   </style>
 </head>
 <body>
@@ -109,20 +163,24 @@
 
   <main class="login-page">
     <div class="login-card">
-      <p class="banner">Demo only — credentials are not sent to any server. Submit redirects to a static preview page.</p>
+      <p class="banner">Demo only — Sign in performs a fake request to a preview backend route and always returns invalid credentials. Use the separate PlannerDashboard preview button to inspect screens.</p>
       <h1>Staff login</h1>
       <p class="subtitle">Municipality console (mock)</p>
-      <form id="fake-login" action="app.html" method="get">
+      <div id="login-feedback" class="login-feedback" aria-live="polite"></div>
+      <form id="fake-login" novalidate>
         <div class="field">
           <label for="email">Work email</label>
-          <input id="email" name="email" type="email" autocomplete="username" placeholder="planner@tallinn.ee" />
+          <input id="email" name="email" type="email" autocomplete="username" placeholder="planner@tallinn.ee" required />
+          <div class="field-error" id="email-error">Unknown work email.</div>
         </div>
         <div class="field">
           <label for="password">Password</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" />
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+          <div class="field-error" id="password-error">Incorrect password.</div>
         </div>
         <div class="login-actions">
           <button type="submit" class="btn btn-primary">Sign in</button>
+          <a class="btn btn-outline" href="app.html">Open PlannerDashboard — static preview</a>
         </div>
       </form>
       <a class="back" href="index.html">Cancel</a>
@@ -136,13 +194,97 @@
   </footer>
 
   <script>
-    document.getElementById("fake-login").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var params = new URLSearchParams();
-      params.set("demo", "1");
-      params.set("ts", String(Date.now()));
-      window.location.href = "app.html?" + params.toString();
-    });
+    (function () {
+      var form = document.getElementById("fake-login");
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+      var feedback = document.getElementById("login-feedback");
+      var submitButton = form.querySelector('button[type="submit"]');
+      var defaultButtonText = submitButton.textContent;
+
+      function setFeedback(kind, text) {
+        feedback.className = "login-feedback is-visible " + kind;
+        feedback.textContent = text;
+      }
+
+      function clearFeedback() {
+        feedback.className = "login-feedback";
+        feedback.textContent = "";
+      }
+
+      function clearErrors() {
+        [email, password].forEach(function (input) {
+          input.parentElement.classList.remove("has-error");
+        });
+      }
+
+      function setFieldError(input, text) {
+        input.parentElement.classList.add("has-error");
+        input.parentElement.querySelector(".field-error").textContent = text;
+      }
+
+      function wait(ms) {
+        return new Promise(function (resolve) {
+          window.setTimeout(resolve, ms);
+        });
+      }
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        clearErrors();
+        clearFeedback();
+
+        var emailValue = email.value.trim();
+        var passwordValue = password.value;
+
+        if (!emailValue || !passwordValue) {
+          if (!emailValue) {
+            setFieldError(email, "Enter a work email.");
+          }
+          if (!passwordValue) {
+            setFieldError(password, "Enter a password.");
+          }
+          setFeedback("is-error", "Both fields are required for the demo request.");
+          return;
+        }
+
+        if (!email.checkValidity()) {
+          setFieldError(email, "Enter a valid work email.");
+          setFeedback("is-error", "The email format is invalid.");
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Checking credentials...";
+        setFeedback("is-pending", "Sending demo request to api/auth/login ...");
+
+        try {
+          await fetch("api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Demo-Preview": "true"
+            },
+            body: JSON.stringify({
+              email: emailValue,
+              password: passwordValue,
+              previewOnly: true
+            })
+          });
+        } catch (error) {
+          // The page is static; a network error is expected in local/demo hosting.
+        }
+
+        await wait(850);
+
+        setFieldError(email, "Unknown work email.");
+        setFieldError(password, "Incorrect password.");
+        setFeedback("is-error", "Demo response from api/auth/login: authentication failed. This form is intentionally non-functional.");
+
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonText;
+      });
+    })();
   </script>
 </body>
 </html>
