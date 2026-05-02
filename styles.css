@@ -215,6 +215,10 @@ code {
   border-top: 1px solid rgba(19, 41, 58, 0.05);
 }
 
+.nav-drawer[hidden] {
+  display: none !important;
+}
+
 .nav-drawer a {
   color: var(--text);
   font-weight: 600;

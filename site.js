@@ -16,7 +16,7 @@
 
   drawer.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
-      if (window.matchMedia("(min-width: 880px)").matches) return;
+      if (window.matchMedia("(min-width: 980px)").matches) return;
       setOpen(false);
     });
   });
