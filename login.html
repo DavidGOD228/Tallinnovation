@@ -163,7 +163,7 @@
 
   <main class="login-page">
     <div class="login-card">
-      <p class="banner">Demo only — Sign in performs a fake request to a preview backend route and always returns invalid credentials. Use the separate PlannerDashboard preview button to inspect screens.</p>
+      <p class="banner">Preview only — Sign in sends a demo request to the preview backend route and returns invalid credentials. Use the separate PlannerDashboard preview button to inspect screens.</p>
       <h1>Staff login</h1>
       <p class="subtitle">Municipality console (mock)</p>
       <div id="login-feedback" class="login-feedback" aria-live="polite"></div>
@@ -189,7 +189,7 @@
 
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <span>VeloCity Tallinn — demo login</span>
+      <span>VeloCity Tallinn — login preview</span>
     </div>
   </footer>
 
@@ -279,7 +279,7 @@
 
         setFieldError(email, "Unknown work email.");
         setFieldError(password, "Incorrect password.");
-        setFeedback("is-error", "Demo response from api/auth/login: authentication failed. This form is intentionally non-functional.");
+        setFeedback("is-error", "Preview response from api/auth/login: authentication failed. Access is not enabled in this demonstration.");
 
         submitButton.disabled = false;
         submitButton.textContent = defaultButtonText;
