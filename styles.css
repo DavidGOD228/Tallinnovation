@@ -810,6 +810,20 @@ code {
   color: var(--muted);
 }
 
+.trust-band {
+  align-content: start;
+}
+
+@media (min-width: 900px) {
+  .trust-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trust-band > div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
 .gallery-card {
   display: flex;
   flex-direction: column;
